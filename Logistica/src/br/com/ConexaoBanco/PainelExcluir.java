@@ -65,7 +65,7 @@ public class PainelExcluir {//Jpanel
 						smtp.execute();	
 						smtp.close();//
 						connection.close();
-						int opcao = JOptionPane.showConfirmDialog(painelDeExclusao, "Funcionario Cadastrado com Sucesso!\n\nDeseja Cadastrar Outro usuário e limpar os campos escritos?\n");
+						int opcao = JOptionPane.showConfirmDialog(painelDeExclusao, "Material: " + campoNome.getText() + "\n\nExcluído com Sucesso!\n\nDeseja Excluir outro material e limpar os campos escritos?\n");
 						System.out.println(opcao);
 						if(opcao == 0){
 							campoNome.setText("");

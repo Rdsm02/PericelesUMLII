@@ -78,7 +78,7 @@ public class PainelCadastro {//Jpanel
 						smtp.execute();	
 						smtp.close();//
 						connection.close();
-						int opcao = JOptionPane.showConfirmDialog(painelDeCadastro, "Funcionario Cadastrado com Sucesso!\n\nDeseja Cadastrar Outro usuário e limpar os campos escritos?\n");
+						int opcao = JOptionPane.showConfirmDialog(painelDeCadastro, "Material: " + campoNome.getText() + "\n\nCadastro realizado com Sucesso!\n\nDeseja Cadastrar Outro Material e limpar os campos escritos?\n");
 						System.out.println(opcao);
 						if(opcao == 0){
 							campoNome.setText("");

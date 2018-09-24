@@ -61,6 +61,7 @@ public class Janela {
 		JFrameTelaInicial.setResizable(false);
 		JFrameTelaInicial.setBounds(100, 100, 520, 500);
 		JFrameTelaInicial.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		JFrameTelaInicial.setLocationRelativeTo(null);
 		JFrameTelaInicial.getContentPane().setLayout(null);			
 		
 		//teste para GIT!!!

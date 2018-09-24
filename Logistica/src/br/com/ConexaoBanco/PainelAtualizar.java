@@ -77,7 +77,7 @@ public class PainelAtualizar {//Jpanel
 						smtp.execute();	
 						smtp.close();//
 						connection.close();
-						int opcao = JOptionPane.showConfirmDialog(painelDeAtualizacao, "Funcionario Cadastrado com Sucesso!\n\nDeseja Cadastrar Outro usuário e limpar os campos escritos?\n");
+						int opcao = JOptionPane.showConfirmDialog(painelDeAtualizacao, "Quantidade de Material Atualizada com Sucesso!\n\nDeseja Atualizar outro Material e limpar os campos escritos?\n");
 						System.out.println(opcao);
 						if(opcao == 0){
 							campoNome.setText("");
