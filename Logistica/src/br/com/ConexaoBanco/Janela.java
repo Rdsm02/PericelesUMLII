@@ -164,7 +164,10 @@ public class Janela {
 			});
 			
 			itemCadastrar.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent arg0) {	
+				public void actionPerformed(ActionEvent arg0) {						
+					JFrameTelaInicial.dispose();					
+					initialize();
+					JFrameTelaInicial.setVisible(true);
 					
 					PainelCadastro cadastro = new PainelCadastro();
 					JFrameTelaInicial.getContentPane().add(cadastro.painelDeCadastro);
@@ -178,7 +181,10 @@ public class Janela {
 			});
 			
 			itemListar.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
+				public void actionPerformed(ActionEvent e) {					
+					JFrameTelaInicial.dispose();					
+					initialize();
+					JFrameTelaInicial.setVisible(true);
 					
 					PainelListar painelListar = new PainelListar();
 					JFrameTelaInicial.getContentPane().add(painelListar.painelDeListagem);
@@ -188,7 +194,39 @@ public class Janela {
 					JFrameTelaInicial.setTitle("Listagem de Dados na Planilha");
 					
 				}
-			});			
+			});	
+			
+			itemAtualizar.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {					
+					JFrameTelaInicial.dispose();					
+					initialize();
+					JFrameTelaInicial.setVisible(true);
+					
+					PainelAtualizar painelAtualizar = new PainelAtualizar();
+					JFrameTelaInicial.getContentPane().add(painelAtualizar.painelDeAtualizacao);
+					painelAtualizar.painelDeAtualizacao.setVisible(true);
+					
+					labelTituloBarraSuperior.setText("Atualização de Dados na Planilha");
+					JFrameTelaInicial.setTitle("Atualização de Dados na Planilha");
+					
+				}
+			});
+			
+			itemExcluir.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					JFrameTelaInicial.dispose();					
+					initialize();
+					JFrameTelaInicial.setVisible(true);
+					
+					PainelExcluir painelExcluir = new PainelExcluir();
+					JFrameTelaInicial.getContentPane().add(painelExcluir.painelDeExclusao);
+					painelExcluir.painelDeExclusao.setVisible(true);
+					
+					labelTituloBarraSuperior.setText("Exclusão de Dados na Planilha");
+					JFrameTelaInicial.setTitle("Exclusão de Dados na Planilha");
+					
+				}
+			});
 			
 	
 	}
