@@ -5,8 +5,7 @@ public class Principal {
 	public static void main(String[] args) {
 		
 		Janela janela = new Janela();
-//		janela.setVisible(true);
-		janela.JFrameTelaInicial.setVisible(true);
+		janela.jFrameTelaInicial.setVisible(true);
 
 	}
 
