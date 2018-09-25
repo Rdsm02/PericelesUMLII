@@ -28,9 +28,6 @@ public class PainelListar {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		
 		painelDeListagem = new JPanel();
@@ -58,7 +55,7 @@ public class PainelListar {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				
-				
+				int contador = 0;
 				Connection connection = ConexaoMySQL.getConexaoMySQL();
 				String sql = "select * from material;";
 				PreparedStatement smtp;
@@ -75,10 +72,12 @@ public class PainelListar {
 						String [] dados = new String [qtdColunas];
 						for(int i = 1; i <=qtdColunas; i++){
 							dados[i-1] = rs.getString(i);
+							contador ++;
 							
 						}
 						dtm.addRow(dados);
-					}
+					}					
+					labelNumeroQtd.setText(Integer.toString(contador/3));
 					scrollPane.setViewportView(table);
 					
 				} catch (SQLException e) {

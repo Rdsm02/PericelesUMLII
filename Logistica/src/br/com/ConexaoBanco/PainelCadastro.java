@@ -16,7 +16,7 @@ import javax.swing.JButton;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 
-public class PainelCadastro {//Jpanel	
+public class PainelCadastro {	
 	protected JTextField campoNome;
 	protected JTextField campoQuantidade;
 	protected JPanel painelDeCadastro;

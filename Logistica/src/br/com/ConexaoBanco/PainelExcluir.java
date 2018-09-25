@@ -16,7 +16,7 @@ import javax.swing.JButton;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 
-public class PainelExcluir {//Jpanel	
+public class PainelExcluir {	
 	protected JTextField campoNome;
 	protected JPanel painelDeExclusao;
 	
@@ -55,7 +55,6 @@ public class PainelExcluir {//Jpanel
 					}else{
 					
 					Connection connection = ConexaoMySQL.getConexaoMySQL();
-					//DELETE FROM NOME_DA_TABELA WHERE id = VALOR_DO_ID
 					String sql= "delete from material where nome = ?";
 					PreparedStatement smtp;
 					
