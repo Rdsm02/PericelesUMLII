@@ -24,18 +24,15 @@ import java.awt.Toolkit;
 
 public class Janela {
 
-	protected JFrame JFrameTelaInicial;	
+	protected JFrame jFrameTelaInicial;	
 	public static Point point = new Point();
-
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					Janela window = new Janela();
-					window.JFrameTelaInicial.setVisible(true);
+					window.jFrameTelaInicial.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -43,33 +40,25 @@ public class Janela {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public Janela() {
 		initialize();
 	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
+	
 	private void initialize() {
-		JFrameTelaInicial = new JFrame();
-		JFrameTelaInicial.setTitle("Tela Inicial");
-		JFrameTelaInicial.setIconImage(Toolkit.getDefaultToolkit().getImage(Janela.class.getResource("/resources/images/iconeprincipal35x40.png")));
-		JFrameTelaInicial.setUndecorated(true);
-		JFrameTelaInicial.setResizable(false);
-		JFrameTelaInicial.setBounds(100, 100, 520, 500);
-		JFrameTelaInicial.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		JFrameTelaInicial.setLocationRelativeTo(null);
-		JFrameTelaInicial.getContentPane().setLayout(null);			
-		
-		//teste para GIT!!!
+		jFrameTelaInicial = new JFrame();
+		jFrameTelaInicial.setTitle("Tela Inicial");
+		jFrameTelaInicial.setIconImage(Toolkit.getDefaultToolkit().getImage(Janela.class.getResource("/resources/images/iconeprincipal35x40.png")));
+		jFrameTelaInicial.setUndecorated(true);
+		jFrameTelaInicial.setResizable(false);
+		jFrameTelaInicial.setBounds(100, 100, 520, 500);
+		jFrameTelaInicial.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		jFrameTelaInicial.setLocationRelativeTo(null);
+		jFrameTelaInicial.getContentPane().setLayout(null);
 		
 		JMenuBar menuPrincipalSuperior = new JMenuBar();
 		menuPrincipalSuperior.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		menuPrincipalSuperior.setBounds(0, 40, 520, 35);
-		JFrameTelaInicial.getContentPane().add(menuPrincipalSuperior);
+		jFrameTelaInicial.getContentPane().add(menuPrincipalSuperior);
 		
 		JMenu menuArquivo = new JMenu("Arquivo");
 		menuPrincipalSuperior.add(menuArquivo);
@@ -101,7 +90,7 @@ public class Janela {
 		painelDaBarraSuperior.setLayout(null);
 		painelDaBarraSuperior.setBackground(Color.WHITE);
 		painelDaBarraSuperior.setBounds(0, 0, 520, 40);
-		JFrameTelaInicial.getContentPane().add(painelDaBarraSuperior);
+		jFrameTelaInicial.getContentPane().add(painelDaBarraSuperior);
 		
 		JButton botaoFechar = new JButton("");		
 		botaoFechar.setIcon(new ImageIcon(Janela.class.getResource("/resources/images/botaoFecharok.png")));
@@ -117,14 +106,7 @@ public class Janela {
 		botaoMaximizar.setBounds(450, 0, 35, 40);
 		painelDaBarraSuperior.add(botaoMaximizar);
 		
-		JButton botaoMinimizar = new JButton("");
-		botaoMinimizar.addActionListener(new ActionListener() {
-			
-			public void actionPerformed(ActionEvent e) {
-				
-				
-			}
-		});
+		JButton botaoMinimizar = new JButton("");		
 		botaoMinimizar.setIcon(new ImageIcon(Janela.class.getResource("/resources/images/botaoMinimizarok.png")));
 		botaoMinimizar.setOpaque(false);
 		botaoMinimizar.setBorder(null);
@@ -152,10 +134,18 @@ public class Janela {
 			
 			painelDaBarraSuperior.addMouseMotionListener(new MouseMotionAdapter() {
 			      public void mouseDragged(MouseEvent e) {
-			        Point p = JFrameTelaInicial.getLocation();
-			        JFrameTelaInicial.setLocation(p.x + e.getX() - point.x, p.y + e.getY() - point.y);
+			        Point p = jFrameTelaInicial.getLocation();
+			        jFrameTelaInicial.setLocation(p.x + e.getX() - point.x, p.y + e.getY() - point.y);
 			      }
 			    });
+			
+			itemSair.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					
+					System.exit(0);
+					
+				}
+			});
 			
 			botaoFechar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -164,68 +154,71 @@ public class Janela {
 				}
 			});
 			
+			botaoMinimizar.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					
+					jFrameTelaInicial.setExtendedState(JFrame.ICONIFIED);
+					
+				}
+			});
+			
 			itemCadastrar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {						
-					JFrameTelaInicial.dispose();					
+					jFrameTelaInicial.dispose();					
 					initialize();
-					JFrameTelaInicial.setVisible(true);
+					jFrameTelaInicial.setVisible(true);
 					
 					PainelCadastro cadastro = new PainelCadastro();
-					JFrameTelaInicial.getContentPane().add(cadastro.painelDeCadastro);
+					jFrameTelaInicial.getContentPane().add(cadastro.painelDeCadastro);
 					cadastro.painelDeCadastro.setVisible(true);
 					
 					labelTituloBarraSuperior.setText("Cadastro de Pessoal");
-					JFrameTelaInicial.setTitle("Cadastro de Pessoal");
-					
-					
+					jFrameTelaInicial.setTitle("Cadastro de Pessoal");					
 				}
 			});
 			
 			itemListar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {					
-					JFrameTelaInicial.dispose();					
+					jFrameTelaInicial.dispose();					
 					initialize();
-					JFrameTelaInicial.setVisible(true);
+					jFrameTelaInicial.setVisible(true);
 					
 					PainelListar painelListar = new PainelListar();
-					JFrameTelaInicial.getContentPane().add(painelListar.painelDeListagem);
+					jFrameTelaInicial.getContentPane().add(painelListar.painelDeListagem);
 					painelListar.painelDeListagem.setVisible(true);
 					
 					labelTituloBarraSuperior.setText("Listagem de Dados na Planilha");
-					JFrameTelaInicial.setTitle("Listagem de Dados na Planilha");
-					
+					jFrameTelaInicial.setTitle("Listagem de Dados na Planilha");					
 				}
 			});	
 			
 			itemAtualizar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {					
-					JFrameTelaInicial.dispose();					
+					jFrameTelaInicial.dispose();					
 					initialize();
-					JFrameTelaInicial.setVisible(true);
+					jFrameTelaInicial.setVisible(true);
 					
 					PainelAtualizar painelAtualizar = new PainelAtualizar();
-					JFrameTelaInicial.getContentPane().add(painelAtualizar.painelDeAtualizacao);
+					jFrameTelaInicial.getContentPane().add(painelAtualizar.painelDeAtualizacao);
 					painelAtualizar.painelDeAtualizacao.setVisible(true);
 					
 					labelTituloBarraSuperior.setText("Atualização de Dados na Planilha");
-					JFrameTelaInicial.setTitle("Atualização de Dados na Planilha");
-					
+					jFrameTelaInicial.setTitle("Atualização de Dados na Planilha");					
 				}
 			});
 			
 			itemExcluir.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					JFrameTelaInicial.dispose();					
+					jFrameTelaInicial.dispose();					
 					initialize();
-					JFrameTelaInicial.setVisible(true);
+					jFrameTelaInicial.setVisible(true);
 					
 					PainelExcluir painelExcluir = new PainelExcluir();
-					JFrameTelaInicial.getContentPane().add(painelExcluir.painelDeExclusao);
+					jFrameTelaInicial.getContentPane().add(painelExcluir.painelDeExclusao);
 					painelExcluir.painelDeExclusao.setVisible(true);
 					
 					labelTituloBarraSuperior.setText("Exclusão de Dados na Planilha");
-					JFrameTelaInicial.setTitle("Exclusão de Dados na Planilha");
-					
+					jFrameTelaInicial.setTitle("Exclusão de Dados na Planilha");					
 				}
 			});
 			
